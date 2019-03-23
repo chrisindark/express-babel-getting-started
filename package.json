@@ -1,0 +1,38 @@
+{
+  "name": "express-babel-getting-started",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && NODE_ENV=production node ./index.js",
+    "cleanbuild": "./node_modules/.bin/rimraf ./build",
+    "build": "npm run cleanbuild && ./node_modules/.bin/babel ./src --out-dir build/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "debugstart": "DEBUG=jobs-server:* npm start",
+    "nodemonstart": "./node_modules/.bin/nodemon --exec babel-node ./index.js",
+    "devstart": "DEBUG=jobs-server:* npm run nodemonstart"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "jade": "^1.11.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.3.4",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3"
+  }
+}
